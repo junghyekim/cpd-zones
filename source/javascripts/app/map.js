@@ -13,7 +13,7 @@ var map = L.map('map', {
 });
 
 L.tileLayer(tiles, {
-  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Zone data &copy; City of Chattanooga, Imagery © <a href="http://mapbox.com">Mapbox</a>'
+  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Zone data &copy; City of Chattanooga'
 }).addTo(map);
 
 omnivore.topojson('data/CPDZones.topojson')

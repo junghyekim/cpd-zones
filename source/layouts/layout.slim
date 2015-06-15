@@ -6,7 +6,7 @@ html
     meta content=("width=device-width initial-scale=1") name="viewport"
     meta content="IE=edge" http-equiv="X-UA-Compatible"
     = stylesheet_link_tag "all"
-    link href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" rel="stylesheet"
+    = javascript_include_tag "vendor"
   body
     header
       .wrapper
@@ -23,6 +23,4 @@ html
           a href="http://openchattanooga.com"  Open Chattanooga Brigade
           | – Source on
           a href="https://github.com/openchattanooga/cpd-zones"  Github
-    script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"
-    script src="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js"
     = javascript_include_tag "app"

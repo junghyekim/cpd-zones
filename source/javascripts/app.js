@@ -1,1 +1,1 @@
-//= require 'map'
+//= require 'app/map'

@@ -2,6 +2,7 @@
 @import "base/grid-settings";
 @import "vendor/neat/neat";
 @import "base/base";
+@import "vendor/leaflet/leaflet";
 
 .container {
   @include outer-container;
