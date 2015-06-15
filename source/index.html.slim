@@ -1,0 +1,13 @@
+---
+title: CPD Zones
+---
+
+section.intro
+  h1 Find out who patrols your neighborhood.
+  p This application helps Chattanoogans find which CPD zone they live in. Type in your address to get started.
+form action="" method="post" name="query"
+  div
+    input#csrf_token name="csrf_token" type="hidden" value="1434390923##a43a1ab877fa971b52797d12ed656230a758d45c"
+    input#query name="query" placeholder=("Enter your address") type="text" value=""
+    input type="submit" value="Locate"
+#map

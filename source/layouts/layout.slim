@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title= current_page.data.title || "CPD Zones"
+    meta charset="utf-8"
+    meta content=("width=device-width initial-scale=1") name="viewport"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    = stylesheet_link_tag "all"
+    link href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" rel="stylesheet"
+  body
+    header
+      .wrapper
+        h1 CPD Zones
+    main role="main"
+      = yield
+    footer
+      .wrapper
+        = image_tag "open-chattanooga-logo.png", alt: "Open Chattanooga Logo"
+        p
+          | Built with ❤ for
+          a href="http://www.chattanooga.gov/"  CHA
+          | by the
+          a href="http://openchattanooga.com"  Open Chattanooga Brigade
+          | – Source on
+          a href="https://github.com/openchattanooga/cpd-zones"  Github
+    script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"
+    script src="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js"
+    = javascript_include_tag "app"
