@@ -3,6 +3,7 @@
 @import "vendor/neat/neat";
 @import "base/base";
 @import "vendor/leaflet/leaflet";
+@import "mixins/flash";
 
 .container {
   @include outer-container;
@@ -66,6 +67,11 @@ main {
 
   }
 
+}
+
+#flash {
+  @include span-columns(12);
+  @include omega();
 }
 
 #input_form {
