@@ -68,7 +68,7 @@ main {
 
 }
 
-form {
+#input_form {
   @include span-columns(12);
   @include omega();
   position: relative;
