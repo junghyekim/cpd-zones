@@ -1,6 +1,14 @@
 ---
 title: CPD Zones
 ---
+script type='text/template' id='card_template'
+  <section class="card">
+    <ul>
+      <li><img src="{{image}}"/></li>
+      <li>{{name}}</li>
+      <li><a href="mailto:{{email}}">{{email}}</a></li>
+    </ul>
+  </section>
 
 section.intro
   h1 Find out who patrols your neighborhood.
@@ -9,4 +17,5 @@ section.intro
   div
     input#query name="query" placeholder=("Enter your address") type="text" value=""
     input type="submit" value="Locate"
+.zone-results
 #map

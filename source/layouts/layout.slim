@@ -5,17 +5,17 @@ html
     meta charset="utf-8"
     meta content=("width=device-width initial-scale=1") name="viewport"
     meta content="IE=edge" http-equiv="X-UA-Compatible"
-    = stylesheet_link_tag "all"
-    = javascript_include_tag "vendor"
+    == stylesheet_link_tag "all"
+    == javascript_include_tag "vendor"
   body
     header
       .wrapper
         h1 CPD Zones
     main role="main"
-      = yield
+      == yield
     footer
       .wrapper
-        = image_tag "open-chattanooga-logo.png", alt: "Open Chattanooga Logo"
+        == image_tag "open-chattanooga-logo.png", alt: "Open Chattanooga Logo"
         p
           | Built with ❤ for
           a href="http://www.chattanooga.gov/"  CHA
@@ -23,4 +23,4 @@ html
           a href="http://openchattanooga.com"  Open Chattanooga Brigade
           | – Source on
           a href="https://github.com/openchattanooga/cpd-zones"  Github
-    = javascript_include_tag "app"
+    == javascript_include_tag "app"
