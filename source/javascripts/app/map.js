@@ -103,7 +103,7 @@ omnivore.topojson('data/CPDZones.topojson')
         
         },
         error: function(xhr, ajax_options, thrown_error) {
-          $('#flash').html(flash_message('error', 'There was an issue finding where you live.'));
+          $('#flash').html(flash_message('error', 'There was an issue finding where you live. Please try again.'));
         }
       });
     });
