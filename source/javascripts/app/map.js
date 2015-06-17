@@ -3,9 +3,19 @@ var northEast = L.latLng(35.217, -85.0462);
 var center = L.latLng(35.0657, -85.241);
 var bounds = L.latLngBounds(southWest, northEast);
 var tiles = '//otile1.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png';
+var geocoder = 'http://maps.hamiltontn.gov/ArcGIS/rest/services/Addressing_Locator/GeocodeServer/findAddressCandidates';
 var card_template = $('#card_template').html();
+var map_attribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Zone data &copy; City of Chattanooga'; 
 var marker;
 var zones;
+
+function score_compare(i,j) {
+  if (i.score < j.score)
+    return -1;
+  if (i.score > j.score)
+    return 1;
+  return 0;
+}
 
 function render_template(v) {
   var output = Mustache.render(card_template, v);
@@ -14,6 +24,13 @@ function render_template(v) {
 
 function flash_message(type, msg) {
   return "<div class='flash-" + type + "'><span>" + msg + "</span></div>";
+}
+
+function build_query(address) {
+  return {
+    'Single Line Input': address,
+    'f': 'json',
+    'outSR': 4326};
 }
 
 L.Icon.Default.imagePath = 'images/leaflet-img';
@@ -26,9 +43,7 @@ var map = L.map('map', {
   zoom: 12
 });
 
-L.tileLayer(tiles, {
-  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Zone data &copy; City of Chattanooga'
-}).addTo(map);
+L.tileLayer(tiles, {attribution: map_attribution}).addTo(map);
 
 omnivore.topojson('data/CPDZones.topojson')
   .on('ready', function(layer) {
@@ -50,22 +65,27 @@ omnivore.topojson('data/CPDZones.topojson')
       // Clear flash
       $('#flash').html('');
 
-      L.esri.Geocoding.Tasks.geocode().text(input).run(function(err, results, response){
-        if (err) {
-          $('#flash').html(flash_message('error', 'There was an issue finding where you live.'));
-        } else {
-          if (results.results.length > 0) {
-            var result = results.results[0];
-            var inpolygon_results = leafletPip.pointInLayer(result.latlng, zones);
+      $.ajax({
+        url: geocoder,
+        jsonp: 'callback',
+        dataType: 'jsonp',
+        timeout: 5000,
+        data: build_query(input),
+        success: function(results) {
+          if (results.candidates.length > 0) {
+            var result_location = 
+              results.candidates.sort(score_compare)[results.candidates.length - 1].location;
+            console.log(results.candidates.sort(score_compare));
+            var result = L.latLng(result_location.y, result_location.x);
+            var inpolygon_results = leafletPip.pointInLayer(result, zones);
 
             if (inpolygon_results.length > 0) {
               var inpolygon_result = inpolygon_results[0];
               var inpolygon_props = inpolygon_result.feature.properties;
 
-              marker = new L.Marker(result.latlng);
+              marker = new L.Marker(result);
               map.addLayer(marker);
-              map.setView(result.latlng);
-              console.log(inpolygon_result.feature.properties);
+              map.setView(result);
               render_template({
                 image: inpolygon_props.CAPT_IMG,
                 name: inpolygon_props.CAPT,
@@ -80,6 +100,10 @@ omnivore.topojson('data/CPDZones.topojson')
           } else {
             $('#flash').html(flash_message('error', 'No results found for your address.'));
           }
+        
+        },
+        error: function(xhr, ajax_options, thrown_error) {
+          $('#flash').html(flash_message('error', 'There was an issue finding where you live.'));
         }
       });
     });
