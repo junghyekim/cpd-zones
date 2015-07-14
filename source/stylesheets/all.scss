@@ -142,6 +142,7 @@ main {
     @include media($medium) {
       @include span-columns(4);
       @include omega-reset(2n);
+      margin-top: 0;
     }
 
   }
@@ -177,4 +178,53 @@ footer {
     text-align: right;
   }
 
+}
+
+#zone_result {
+
+  @include span-columns(12);
+  @include omega();
+
+}
+
+.zone-text {
+
+  padding: em(4) em(6);
+  border-radius: em(5);
+
+}
+
+.echo {
+  background-color: $echo;
+  color: white;
+}
+
+.alpha {
+  background-color: $alpha;
+  color: white;
+}
+
+.delta {
+  background-color: $delta;
+  color: white;
+}
+
+.george {
+  background-color: $george;
+  color: white;
+}
+
+.fox {
+  background-color: $fox;
+  color: black;
+}
+
+.charlie {
+  background-color: $charlie;
+  color: white;
+}
+
+.bravo {
+  background-color: $bravo;
+  color: white;
 }

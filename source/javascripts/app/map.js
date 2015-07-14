@@ -5,6 +5,7 @@ var bounds = L.latLngBounds(southWest, northEast);
 var tiles = '//otile1.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png';
 var geocoder = 'http://maps.hamiltontn.gov/ArcGIS/rest/services/Addressing_Locator/GeocodeServer/findAddressCandidates';
 var card_template = $('#card_template').html();
+var zone_name_template = $('#zone_name_template').html();
 var map_attribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Zone data &copy; City of Chattanooga'; 
 var marker;
 var zones;
@@ -17,8 +18,8 @@ function score_compare(i,j) {
   return 0;
 }
 
-function render_template(v) {
-  var output = Mustache.render(card_template, v);
+function render_template(tmpl, v) {
+  var output = Mustache.render(tmpl, v);
   $('.zone-results').append(output);
 }
 
@@ -87,11 +88,14 @@ omnivore.topojson('data/CPDZones.topojson')
               marker = new L.Marker(result);
               map.addLayer(marker);
               map.setView(result);
-              render_template({
+              render_template(zone_name_template, {
+                zone: inpolygon_props.CPD_Zone.toLowerCase(),
+                zone_upper: inpolygon_props.CPD_Zone});
+              render_template(card_template, {
                 image: inpolygon_props.CAPT_IMG,
                 name: inpolygon_props.CAPT,
                 email: inpolygon_props.CAPT_EMAIL});
-              render_template({
+              render_template(card_template, {
                 image: inpolygon_props.LT_IMG,
                 name: inpolygon_props.LT,
                 email: inpolygon_props.LT_EMAIL});
