@@ -52,7 +52,8 @@ omnivore.topojson('data/CPDZones.topojson')
       l.setStyle(l.feature.properties);
     });
 
-    $('input[value="Locate"]').click(function() {
+    $('#input_form').submit(function(e) {
+      event.preventDefault();
 
       if (marker !== undefined) {
         map.removeLayer(marker);

@@ -14,9 +14,10 @@ section.intro
   h1 Find out who patrols your neighborhood.
   p This application helps Chattanoogans find which CPD zone they live in. Type in your address to get started.
 section#flash
-#input_form
+form#input_form
   div
-    input#query name="query" placeholder=("Enter your address") type="text" value=""
+    input#query name="query" placeholder=("1001 Broad St.") type="text" value=""
     input type="submit" value="Locate"
+    em
 .zone-results
 #map
