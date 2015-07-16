@@ -77,7 +77,6 @@ omnivore.topojson('data/CPDZones.topojson')
           if (results.candidates.length > 0) {
             var result_location = 
               results.candidates.sort(score_compare)[results.candidates.length - 1].location;
-            console.log(results.candidates.sort(score_compare));
             var result = L.latLng(result_location.y, result_location.x);
             var inpolygon_results = leafletPip.pointInLayer(result, zones);
 
