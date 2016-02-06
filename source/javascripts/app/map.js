@@ -46,7 +46,7 @@ var map = L.map('map', {
 
 L.tileLayer(tiles, {attribution: map_attribution}).addTo(map);
 
-omnivore.topojson('data/CPDZones.json')
+omnivore.topojson('data/CPDZones.topojson')
   .on('ready', function(layer) {
     zones = this;
     this.eachLayer(function(l){
