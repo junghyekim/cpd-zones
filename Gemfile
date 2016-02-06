@@ -16,5 +16,3 @@ gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby]
 gem "slim"
 
 gem 'middleman-deploy', '~> 1.0'
-
-gem 'tilt-yaml2json'

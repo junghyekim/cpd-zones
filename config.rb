@@ -1,5 +1,3 @@
-require 'tilt/yaml2json/register'
-
 ###
 # Compass
 ###
