@@ -141,13 +141,13 @@
             color: "#000000"
             weight: 0.5
             fillOpacity: 0.7
-            LT: "Lt. Pedro Bacon"
-            LT_IMG: "images/bacon.jpg"
+            LT: "Lt. Mark Smeltzer"
+            LT_IMG: "images/smeltzer.jpg"
             CAPT: "Capt. Edwin McPherson"
             CAPT_IMG: "images/mcpherson.jpg"
             CPD_Zone: "Delta"
             CAPT_EMAIL: "mcpherson_e@chattanooga.gov"
-            LT_EMAIL: "bacon_p@chattanooga.gov"
+            LT_EMAIL: "msmeltzer@chattanooga.gov"
           arcs: 
             - 
               - 
@@ -283,13 +283,13 @@
             color: "#000000"
             weight: 0.5
             fillOpacity: 0.7
-            LT: "Lt. Scott Fulgham"
-            LT_IMG: "images/fulgham.jpg"
+            LT: "Lt. Jerri Sutton"
+            LT_IMG: "images/sutton.jpg"
             CAPT: "Capt. Corliss Cooper"
             CAPT_IMG: "images/cooper.jpg"
             CPD_Zone: "Bravo"
             CAPT_EMAIL: "cooper_c@chattanooga.gov"
-            LT_EMAIL: "fulgham_s@chattanooga.gov"
+            LT_EMAIL: "jsutton@chattanooga.gov"
           arcs: 
             - 
               - 
