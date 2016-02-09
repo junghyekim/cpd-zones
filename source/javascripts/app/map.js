@@ -54,7 +54,7 @@ omnivore.topojson('data/CPDZones.topojson')
     });
 
     $('#input_form').submit(function(e) {
-      event.preventDefault();
+      e.preventDefault();
 
       if (marker !== undefined) {
         map.removeLayer(marker);
