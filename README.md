@@ -2,7 +2,7 @@
 
 CPD Zones is a small web application showing the different Chattanooga Police Department zones. You can use it to figure out which zone your house is in, and which officers are the main contacts for your zone.
 
-It is based off of a project started by @seabre, @kylegordy, and @juzten. You can see the original project [here](https://github.com/openchattanooga/cpd-zones-old).
+It is based off of a project started by [@seabre](https://github.com/seabre), [@kylegordy](https://github.com/kylegordy), and [@juzten](https://github.com/juzten). You can see the original project [here](https://github.com/openchattanooga/cpd-zones-old).
 
 ## Building The Project Site
 
