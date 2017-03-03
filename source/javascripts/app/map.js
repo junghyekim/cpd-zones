@@ -3,7 +3,7 @@ var northEast = L.latLng(35.217, -85.0462);
 var center = L.latLng(35.0657, -85.241);
 var bounds = L.latLngBounds(southWest, northEast);
 var tiles = '//tile.stamen.com/terrain/{z}/{x}/{y}.jpg';
-var geocoder = 'http://maps.hamiltontn.gov/ArcGIS/rest/services/Addressing_Locator/GeocodeServer/findAddressCandidates';
+var geocoder = 'http://pwgis.chattanooga.gov/arcgis/rest/services/Locators/ChattGeo/GeocodeServer/findAddressCandidates';
 var card_template = $('#card_template').html();
 var zone_name_template = $('#zone_name_template').html();
 var map_attribution = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>. Zone data &copy; City of Chattanooga';
@@ -29,7 +29,7 @@ function flash_message(type, msg) {
 
 function build_query(address) {
   return {
-    'Single Line Input': address,
+    'SingleLine': address,
     'f': 'json',
     'outSR': 4326};
 }
